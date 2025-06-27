@@ -1,0 +1,137 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>Para Você 💘</title>
+  <link href="https://fonts.googleapis.com/css2?family=Parisienne&family=Open+Sans&display=swap" rel="stylesheet">
+  <style>
+    body {
+      margin: 0;
+      padding: 0;
+      background: linear-gradient(to right, #ffe6f0, #fff0f5);
+      font-family: 'Open Sans', sans-serif;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      height: 100vh;
+      overflow: hidden;
+      position: relative;
+    }
+
+    body::before {
+      content: "💖 💘 💝 💕 💓";
+      font-size: 80px;
+      color: rgba(255, 192, 203, 0.15);
+      position: absolute;
+      top: 10%;
+      left: 50%;
+      transform: translateX(-50%);
+      animation: float 8s ease-in-out infinite;
+    }
+
+    @keyframes float {
+      0%, 100% { transform: translateX(-50%) translateY(0); }
+      50% { transform: translateX(-50%) translateY(-10px); }
+    }
+
+    .container {
+      background: rgba(255, 255, 255, 0.95);
+      padding: 50px;
+      border-radius: 25px;
+      box-shadow: 0 10px 30px rgba(0, 0, 0, 0.1);
+      text-align: center;
+      max-width: 500px;
+      animation: fadeIn 1s ease forwards;
+    }
+
+    @keyframes fadeIn {
+      from { opacity: 0; transform: translateY(30px); }
+      to { opacity: 1; transform: translateY(0); }
+    }
+
+    h1 {
+      font-family: 'Parisienne', cursive;
+      font-size: 2.5em;
+      color: #d63384;
+      margin-bottom: 30px;
+    }
+
+    button {
+      display: block;
+      width: 100%;
+      margin: 10px auto;
+      padding: 15px;
+      font-size: 1em;
+      border: none;
+      border-radius: 12px;
+      cursor: pointer;
+      background: #ffb6c1;
+      color: white;
+      font-weight: bold;
+      transition: background 0.3s, transform 0.2s;
+    }
+
+    button:hover {
+      background: #ff6f91;
+      transform: scale(1.03);
+    }
+
+    .response {
+      margin-top: 30px;
+      font-size: 1.2em;
+      color: #8a2be2;
+      font-weight: bold;
+    }
+  </style>
+</head>
+<body>
+  <div class="container">
+    <h1>Quem é você?</h1>
+    <button onclick="responder('A')">A) Wadsa</button>
+    <button onclick="responder('B')">B) Cilene</button>
+    <button onclick="responder('C')">C) Michelle</button>
+    <button onclick="responder('D')">D) Willyane</button>
+    <button onclick="responder('E')">E) Sport</button>
+    <div class="response" id="resposta"></div>
+  </div>
+
+  <script>
+    function responder(opcao) {
+      const resposta = document.getElementById('resposta');
+
+      if (opcao === 'A') {
+        window.location.href = "proxima_pagina.html"; // próxima página romântica
+      } else if (opcao === 'B') {
+        resposta.textContent = "Eita sogra, isso não é pra você.";
+      } else if (opcao === 'C') {
+        resposta.textContent = "Deixa de ser curiosa mainha.";
+      } else if (opcao === 'D') {
+        resposta.textContent = "Hoje não cunha, Wadsa te mata e depois me mata.";
+      } else if (opcao === 'E') {
+          resposta.textContent = "sport.html"; // próxima página Sport 
+      }
+    }
+  </script>
+</body>
+</html>
+<!-- MANTENHA TUDO COMO ESTÁ, MAS GARANTA QUE ESTE TRECHO ESTÁ EXATO NO SCRIPT -->
+<script>
+  function responder(opcao) {
+    const resposta = document.getElementById('resposta');
+
+    if (opcao === 'A') {
+      // redireciona corretamente para a segunda página
+      window.location.href = "proxima_pagina.html";
+    } else if (opcao === 'B') {
+      resposta.textContent = "Eita sogra, isso não é pra você.";
+    } else if (opcao === 'C') {
+      resposta.textContent = "Deixa de ser curiosa mainha.";
+    } else if (opcao === 'D') {
+      resposta.textContent = "Hoje não cunha, Wadsa te mata e depois me mata.";
+    } else if (opcao === 'E') {
+      // redireciona corretamente para a página do sport
+      window.location.href= "sport.html";
+    }
+  }
+</script>

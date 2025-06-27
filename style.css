@@ -1,0 +1,168 @@
+body {
+    margin: 0;
+    padding: 0;
+    font-family: 'Segoe UI', sans-serif;
+    background: linear-gradient(135deg, #fff0f5, #ffe4e1);
+    animation: pulseBackground 10s ease infinite alternate;
+  }
+  
+  @keyframes pulseBackground {
+    0% { background-position: 0% 50%; }
+    100% { background-position: 100% 50%; }
+  }
+  
+  .gallery-container {
+    padding: 30px 20px 140px;
+    display: flex;
+    justify-content: center;
+  }
+  
+  .photo-gallery {
+    display: grid;
+    grid-template-columns: repeat(5, 1fr);
+    gap: 30px;
+    justify-items: center;
+    max-width: 1200px;
+    margin: 0 auto 50px auto;
+  }
+  
+  .polaroid {
+    background: #fff;
+    padding: 10px;
+    border: 3px solid #f0c0d0;
+    box-shadow: 4px 4px 10px rgba(0, 0, 0, 0.3);
+    width: 220px;
+    text-align: center;
+    transition: all 0.3s ease;
+    border-radius: 8px;
+  }
+  
+  .polaroid img {
+    width: 100%;
+    border-bottom: 2px solid #f0c0d0;
+    border-radius: 5px;
+  }
+  
+  .polaroid:hover {
+    transform: scale(1.05) rotate(1deg);
+  }
+  
+  .polaroid p {
+    margin-top: 10px;
+    font-size: 14px;
+    color: #444;
+    font-style: italic;
+  }
+  
+  /* Efeito fadeIn nas fotos */
+  .fade {
+    animation: fadeInUp 1s ease both;
+  }
+  
+  @keyframes fadeInUp {
+    0% {
+      opacity: 0;
+      transform: translateY(40px);
+    }
+    100% {
+      opacity: 1;
+      transform: translateY(0);
+    }
+  }
+  
+  /* Bitico */
+  .bitico {
+    position: fixed;
+    bottom: 50px;
+    left: 20px;
+    text-align: center;
+    z-index: 100;
+  }
+  
+  .bitico img {
+    width: 160px;
+    height: auto;
+  }
+  
+  .balao {
+    position: absolute;
+    bottom: 130px;
+    left: 160px;
+    background: #fff;
+    border: 2px solid #f0c0d0;
+    border-radius: 20px;
+    padding: 20px;
+    max-width: 300px;
+    font-size: 15px;
+    box-shadow: 2px 2px 8px rgba(0,0,0,0.2);
+    color: #333;
+  }
+  
+  .balao::after {
+    content: '';
+    position: absolute;
+    bottom: -20px;
+    left: 30px;
+    border-width: 10px;
+    border-style: solid;
+    border-color: #fff transparent transparent transparent;
+  }
+  
+  /* Navegação */
+  .navegacao {
+    position: fixed;
+    bottom: 30px;
+    left: 50%;
+    transform: translateX(-50%);
+    display: flex;
+    gap: 20px;
+  }
+  
+  .btn {
+    padding: 14px 32px;
+    font-size: 18px;
+    background-color: #f06292;
+    color: white;
+    text-decoration: none;
+    border-radius: 30px;
+    box-shadow: 2px 4px 10px rgba(0,0,0,0.2);
+    transition: background-color 0.3s;
+  }
+  
+  .btn:hover {
+    background-color: #ec407a;
+  }
+  .nav-buttons {
+    display: flex;
+    justify-content: center;
+    gap: 30px;
+    margin-bottom: 50px;
+  }
+  
+  .button {
+    background: #ff85b3;
+    color: white;
+    padding: 16px 32px;
+    font-size: 18px;
+    border: none;
+    border-radius: 30px;
+    text-decoration: none;
+    box-shadow: 0 5px 15px rgba(0,0,0,0.2);
+    transition: all 0.3s ease;
+  }
+  
+  .button:hover {
+    background: #ff5d9e;
+    transform: scale(1.05);
+  }
+  .video-container {
+    width: 400px;
+    max-width: 95vw;
+    border-radius: 20px;
+    overflow: hidden;
+    box-shadow: 0 8px 20px rgba(0,0,0,0.25);
+  }
+  
+
+   
+  

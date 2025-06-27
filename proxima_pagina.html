@@ -1,0 +1,121 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>Olá 💌</title>
+  <link href="https://fonts.googleapis.com/css2?family=Parisienne&family=Open+Sans&display=swap" rel="stylesheet">
+  <style>
+    body {
+      margin: 0;
+      padding: 0;
+      background: linear-gradient(to bottom right, #fff0f5, #ffe6f0);
+      font-family: 'Open Sans', sans-serif;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      height: 100vh;
+      text-align: center;
+    }
+
+    .container {
+      background: rgba(255, 255, 255, 0.95);
+      padding: 40px;
+      border-radius: 25px;
+      box-shadow: 0 10px 30px rgba(0, 0, 0, 0.1);
+      max-width: 650px;
+      width: 90%;
+      animation: fadeIn 1s ease;
+    }
+
+    @keyframes fadeIn {
+      from { opacity: 0; transform: translateY(20px); }
+      to { opacity: 1; transform: translateY(0); }
+    }
+
+    h1 {
+      font-family: 'Parisienne', cursive;
+      font-size: 2.5em;
+      color: #d63384;
+      margin-bottom: 20px;
+    }
+
+    p {
+      font-size: 1.2em;
+      color: #444;
+      margin: 12px 0;
+      line-height: 1.7;
+    }
+
+    img {
+      width: 130px;
+      margin: 20px auto;
+      animation: float 3s ease-in-out infinite;
+    }
+
+    @keyframes float {
+      0%, 100% { transform: translateY(0); }
+      50% { transform: translateY(-10px); }
+    }
+
+    .button-group {
+      margin-top: 40px;
+    }
+
+    .btn-large {
+      padding: 16px 40px;
+      font-size: 1.2em;
+      border: none;
+      border-radius: 30px;
+      background-color: #ff66a3;
+      color: white;
+      font-weight: bold;
+      cursor: pointer;
+      box-shadow: 0 6px 15px rgba(0, 0, 0, 0.1);
+      transition: background 0.3s ease, transform 0.2s ease;
+    }
+
+    .btn-large:hover {
+      background-color: #ff3385;
+      transform: scale(1.05);
+    }
+
+    .btn-voltar {
+      background-color: #ff66a3;
+      color: #ffffff;
+      margin-top: 20px;
+    }
+
+    .btn-voltar:hover {
+      background-color: #ff66a3;
+    }
+  </style>
+</head>
+<body>
+  <div class="container">
+    <h1>Então é você que ele tanto fala?</h1>
+    <img src="bitico.jpg" 
+    <p>Prazer, me chamo <strong>Bitico</strong>, sou o protetor do computador dele.</p>
+    <p>Ele fala <strong>muito</strong> sobre você! Mas vou deixar em segredo...</p>
+    <p>O que eu mais vejo é ele olhando as fotos de vocês, sorrindo que nem besta 😂</p>
+    <p>E vídeos virando papel de parede. Você tem um verdadeiro fã! 💖</p>
+    <p>Venha deixa eu te mostrar umas coisas, mas não conte pra ele!</p>
+
+    <div class="button-group">
+      <button class="btn-large" onclick="irParaProxima()">💌 Próximo</button>
+      <br />
+      <button class="btn-large btn-voltar" onclick="voltar()">⬅️ Voltar</button>
+    </div>
+  </div>
+
+  <script>
+    function irParaProxima() {
+      window.location.href = "pagina3.html";
+    }
+
+    function voltar() {
+      window.location.href = "index.html";
+    }
+  </script>
+</body>
+</html>

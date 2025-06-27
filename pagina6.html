@@ -1,0 +1,118 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+  <meta charset="UTF-8">
+  <link href="https://fonts.googleapis.com/css2?family=Dancing+Script&display=swap" rel="stylesheet">
+  <title>Nosso Momento</title>
+  <style>
+    body {
+      margin: 0;
+      font-family: 'Segoe UI', sans-serif;
+      background: linear-gradient(to bottom, #f9e1e1, #ffe7f0);
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      justify-content: center;
+      min-height: 100vh;
+      padding: 20px;
+      text-align: center;
+    }
+
+    h1 {
+      color: #c94f7c;
+      margin-bottom: 20px;
+    }
+    .video-container {
+      width: 250px;
+      border-radius: 20px;
+      overflow: hidden;
+      box-shadow: 0 8px 20px rgba(0,0,0,0.2);
+    }
+
+    video {
+      width: 100%;
+      height: auto;
+      display: block;
+    }
+
+    .controls {
+      margin-top: 15px;
+    }
+
+    .btn {
+      background-color: #c94f7c;
+      color: white;
+      border: none;
+      padding: 12px 24px;
+      font-size: 16px;
+      border-radius: 25px;
+      cursor: pointer;
+      transition: 0.3s ease;
+    }
+
+    .btn:hover {
+      background-color: #a73f65;
+    }
+
+    .final-message {
+      font-size: 1.1em;
+      color: #444;
+      margin-top: 25px;
+      max-width: 300px;
+    }
+
+    .navegacao {
+      margin-top: 30px;
+    }
+
+  </style>
+</head>
+<body>
+
+  <h1>Nosso momento 💖</h1>
+
+  <video id="meuVideo" style="width: 500px; height: auto; display: block; border-radius: 20px;" playsinline>
+    <source src="video.mp4" type="video/mp4">
+    Seu navegador não suporta vídeo.
+  </video>
+  
+
+  <div class="controls">
+    <button class="btn" onclick="toggleVideo()">▶️ Play / ⏸️ Pause</button>
+  </div>
+
+  <div class="final-message" style="
+  font-family: 'Dancing Script', cursive;
+  font-size: 30px;
+  text-align: center;
+  color: #cc3366;
+  margin-top: 30px;
+">
+  Cada segundo com você é um pedacinho do paraíso que ele nunca quer perder.
+</div>
+
+  <div class="navegacao">
+    <a href="pagina5.html" class="btn">← Voltar</a>
+  </div>
+  <div style="text-align: center; margin-top: 30px;">
+    <a href="pagina7.html" style="padding: 15px 30px; background-color: #ff7e9d; color: white; font-size: 18px; border-radius: 30px; text-decoration: none; box-shadow: 0 4px 10px rgba(0,0,0,0.2); transition: 0.3s;">
+      Próximo →
+    </a>
+  </div>  
+  <script>
+    const video = document.getElementById('meuVideo');
+
+    function toggleVideo() {
+      if (video.paused) {
+        video.play();
+      } else {
+        video.pause();
+      }
+    }
+
+  
+
+  </script>
+
+</body>
+</html>

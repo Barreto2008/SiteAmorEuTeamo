@@ -1,0 +1,116 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+  <meta charset="UTF-8">
+  <title>Final</title>
+  <link href="https://fonts.googleapis.com/css2?family=Dancing+Script&family=Roboto&display=swap" rel="stylesheet">
+  <style>
+    body {
+      margin: 0;
+      padding: 0;
+      background: linear-gradient(to bottom right, #ffe6eb, #fff0f5);
+      font-family: 'Roboto', sans-serif;
+      overflow-x: hidden;
+    }
+
+    .container {
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      justify-content: center;
+      min-height: 100vh;
+      text-align: center;
+      padding: 20px;
+    }
+
+    .heart {
+      width: 100px;
+      height: 90px;
+      background-color: #ff4d6d;
+      position: relative;
+      transform: rotate(-45deg);
+      animation: pulse 2s infinite;
+      margin-bottom: 30px;
+    }
+
+    .heart::before,
+    .heart::after {
+      content: "";
+      width: 100px;
+      height: 90px;
+      background-color: #ff4d6d;
+      border-radius: 50%;
+      position: absolute;
+    }
+
+    .heart::before {
+      top: -50px;
+      left: 0;
+    }
+
+    .heart::after {
+      left: 50px;
+      top: 0;
+    }
+
+    @keyframes pulse {
+      0% { transform: scale(1) rotate(-45deg); }
+      50% { transform: scale(1.1) rotate(-45deg); }
+      100% { transform: scale(1) rotate(-45deg); }
+    }
+
+    h1 {
+      font-family: 'Dancing Script', cursive;
+      font-size: 48px;
+      color: #cc3366;
+      margin-bottom: 20px;
+      animation: fadeInUp 2s ease forwards;
+    }
+
+    p {
+      font-size: 20px;
+      color: #444;
+      max-width: 600px;
+      animation: fadeInUp 2.5s ease forwards;
+    }
+
+    .button {
+      margin-top: 40px;
+      padding: 15px 30px;
+      background-color: #ff7e9d;
+      color: white;
+      font-size: 18px;
+      border: none;
+      border-radius: 30px;
+      text-decoration: none;
+      transition: 0.3s;
+      animation: fadeInUp 3s ease forwards;
+    }
+
+    .button:hover {
+      background-color: #ff5a86;
+    }
+
+    @keyframes fadeInUp {
+      from {
+        opacity: 0;
+        transform: translateY(40px);
+      }
+      to {
+        opacity: 1;
+        transform: translateY(0);
+      }
+    }
+  </style>
+</head>
+<body>
+  <div class="container">
+    <div class="heart"></div>
+    <h1>Isso é tudo...</h1>
+    <p>
+      Espero que tenha gostado de cada detalhe, feito com carinho só pra você. Cada pedacinho desse site carrega um pouco do que ele sente por você.
+    </p>
+    <a class="button" href="index.html">Voltar ao Início</a>
+  </div>
+</body>
+</html>

@@ -1,0 +1,121 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>Chuva de Corações</title>
+  <style>
+    body {
+      margin: 0;
+      overflow: hidden;
+      height: 100vh;
+      background: linear-gradient(to bottom, #ffdde1, #ee9ca7);
+      font-family: 'Comic Sans MS', cursive;
+    }
+
+    .coracao {
+      position: absolute;
+      color: #ff3366;
+      font-size: 24px;
+      animation: cair 8s linear infinite;
+      opacity: 0.8;
+      user-select: none;
+    }
+
+    @keyframes cair {
+      0% {
+        top: -10%;
+        transform: translateX(0) rotate(0deg);
+      }
+      100% {
+        top: 110%;
+        transform: translateX(50px) rotate(360deg);
+      }
+    }
+
+    .bitico-centro {
+      position: absolute;
+      top: 50%;
+      left: 50%;
+      transform: translate(-50%, -50%);
+      max-width: 300px;
+      z-index: 1;
+    }
+
+    .fala {
+      position: absolute;
+      top: 65%;
+      left: 50%;
+      transform: translateX(-50%);
+      background: white;
+      padding: 16px 20px;
+      border-radius: 20px;
+      box-shadow: 2px 2px 10px rgba(0,0,0,0.2);
+      max-width: 400px;
+      font-size: 16px;
+      color: #333;
+      text-align: center;
+      z-index: 2;
+    }
+
+    .navegacao {
+      position: absolute;
+      bottom: 30px;
+      left: 50%;
+      transform: translateX(-50%);
+      display: flex;
+      gap: 20px;
+      z-index: 3;
+    }
+
+    .navegacao a {
+      text-decoration: none;
+      background-color: #ff3366;
+      color: white;
+      padding: 14px 28px;
+      border-radius: 30px;
+      font-size: 18px;
+      box-shadow: 0 4px 10px rgba(0,0,0,0.2);
+      transition: background 0.3s ease;
+    }
+
+    .navegacao a:hover {
+      background-color: #cc2952;
+    }
+  </style>
+</head>
+<body>
+
+  <!-- Bitico centralizado -->
+  <img src="img/bitico_guarda_chuva.png"Bitico" class="bitico-centro">
+  <div class="fala">
+    Ele sente isso o tempo todo quando pensa em você.amor e mais amor.
+    será que voce conhece ele bem? e sobre voces? hmmmmmm
+    venha comigo!
+  </div>
+
+  <!-- Botões centralizados -->
+  <div class="navegacao">
+    <a href="pagina3.html">← Voltar</a>
+    <a href="pagina5.html">Próximo →</a>
+  </div>
+
+  <!-- Corações animados -->
+  <script>
+    function criarCoracao() {
+      const coracao = document.createElement("div");
+      coracao.classList.add("coracao");
+      coracao.innerText = "❤";
+      coracao.style.left = Math.random() * 100 + "vw";
+      coracao.style.fontSize = (Math.random() * 20 + 20) + "px";
+      coracao.style.animationDuration = (Math.random() * 5 + 5) + "s";
+      document.body.appendChild(coracao);
+      setTimeout(() => {
+        coracao.remove();
+      }, 10000);
+    }
+
+    setInterval(criarCoracao, 300);
+  </script>
+</body>
+</html>

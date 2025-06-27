@@ -1,0 +1,251 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+  <meta charset="UTF-8" />
+  <title>Quiz do Amor</title>
+  <style>
+    body {
+      font-family: 'Segoe UI', sans-serif;
+      background: linear-gradient(to bottom, #ffe6f0, #fff);
+      margin: 0;
+      padding: 0;
+      text-align: center;
+    }
+
+    .container {
+      max-width: 700px;
+      margin: 40px auto;
+      padding: 30px;
+      background: white;
+      border-radius: 20px;
+      box-shadow: 0 0 20px rgba(255, 0, 128, 0.1);
+      position: relative;
+    }
+
+    .contador {
+      position: absolute;
+      top: 20px;
+      right: 30px;
+      font-weight: bold;
+      color: #d63384;
+      font-size: 1em;
+    }
+
+    h2 {
+      font-size: 1.5em;
+      color: #d63384;
+      margin-bottom: 30px;
+    }
+
+    .opcao {
+      display: block;
+      margin: 15px auto;
+      padding: 15px;
+      border: 2px solid #d63384;
+      border-radius: 10px;
+      cursor: pointer;
+      transition: 0.3s;
+      color: #d63384;
+      font-weight: bold;
+      background: #fff0f5;
+      max-width: 400px;
+    }
+    .opcao:hover {
+      background-color: #d63384;
+      color: white;
+    }
+    .botoes {
+      margin-top: 30px;
+    }
+    .botoes button {
+      background-color: #d63384;
+      color: white;
+      padding: 12px 30px;
+      border: none;
+      border-radius: 30px;
+      font-size: 16px;
+      margin: 10px;
+      cursor: pointer;
+      transition: 0.3s;
+    }
+    .botoes button:hover {
+      background-color: #b3005f;
+    }
+    #resultado {
+      font-size: 1.3em;
+      margin-top: 20px;
+      color: #b3005f;
+    }
+    .bitico-topo {
+      width: 120px;
+      margin: 0 auto 20px;
+    }
+  </style>
+</head>
+<body>
+  <div class="container">
+    <div class="contador" id="contador">0/10</div>
+    <img src="bitico.jpg" class="bitico-topo">
+    <h2 id="pergunta"></h2>
+    <div id="opcoes"></div>
+    <div class="botoes" id="botoes">
+      <button onclick="voltarPergunta()">← Voltar</button>
+      <button onclick="proximaPergunta()">Próxima →</button>
+    </div>
+    <div id="resultado"></div>
+  </div>
+  <script>
+    const perguntas = [
+      {
+        texto: "Oque ele mais ama em voce?",
+        opcoes: [
+          { texto: "Boca", correta: false },
+          { texto: "Sorriso", correta: false },
+          { texto: "Tudo!", correta: true },
+          { texto: "Cabelo", correta: false }
+        ]
+      },
+      {
+        texto: "Quais são as comidas preferidas dele?",
+        opcoes: [
+          { texto: "Pizza/Hamburguer", correta: false },
+          { texto: "Sushi/Pizza", correta: false },
+          { texto: "Churrasco/Sushi", correta: true },
+          { texto: "Churrasco/Strogonoff", correta: false }
+        ]
+      },
+      {
+        texto: "Qual o lugar do mundo que ele mais tem vontade de conhecer?",
+        opcoes: [
+          { texto: "Gramado", correta: false },
+          { texto: "Australia", correta: false },
+          { texto: "Paris", correta: false },
+          { texto: "Suiça", correta: true }
+        ]
+      },
+      {
+        texto: "O que ele mais faz no celular?",
+        opcoes: [
+          { texto: "Olhar fotos de voces", correta: true },
+          { texto: "Jogar", correta: false },
+          { texto: "Assistir", correta: false },
+          { texto: "Trabalhar", correta: false }
+        ]
+      },
+      {
+        texto: "Qual a parte do seu corpo que ele mais gosta?",
+        opcoes: [
+          { texto: "Olhos", correta: false },
+          { texto: "Toda por completo!!!!!", correta: true },
+          { texto: "Bunda", correta: false },
+          { texto: "Cabelo", correta: false }
+        ]
+      },
+      {
+        texto: "O que ele gosta de fazer no tempo livre?",
+        opcoes: [
+          { texto: "Dormir", correta: false },
+          { texto: "Jogar", correta: true },
+          { texto: "Assistir", correta: false },
+          { texto: "Trabalhar", correta: false }
+        ]
+      },
+      {
+        texto: "Se voces estivessem sozinhos agora, oque ele iria querer fazer?",
+        opcoes: [
+          { texto: "Comer", correta: false },
+          { texto: "Dormir", correta: false },
+          { texto: "Ficar agarradinho e beijando :)))", correta: true },
+          { texto: "Jogar", correta: false }
+        ]
+      },
+      {
+        texto: "Qual o maior arrependimento dele?",
+        opcoes: [
+          { texto: "Não ter comprado aquele computador", correta: false },
+          { texto: "Não ter conhecido voce antes", correta: true },
+          { texto: "Não ter ido naquele jogo do Sport", correta: false },
+          { texto: "Não ter comprado aquela camisa do sport", correta: false }
+        ]
+      },
+      {
+        texto: "Oque mais deixa ele maluco por voce?",
+        opcoes: [
+          { texto: "Quando voce me abraça", correta: false },
+          { texto: "Quando voce me olha", correta: false },
+          { texto: "Quando voce me beija", correta: false },
+          { texto: "Voce por completa", correta: true }
+        ]
+      },
+      {
+        texto: "Se ele tivesse que te descrever em uma palavra qual seria?",
+        opcoes: [
+          { texto: "Louca", correta: false },
+          { texto: "Tentação", correta: true },
+          { texto: "Princesa", correta: false },
+          { texto: "Encanto", correta: false }
+        ]
+      }
+    ];
+    let indice = 0;
+    let acertos = 0;
+
+    function atualizarContador() {
+      document.getElementById('contador').textContent = `${indice}/10`;
+    }
+    function mostrarPergunta() {
+      atualizarContador();
+      const perguntaAtual = perguntas[indice];
+      document.getElementById('pergunta').textContent = perguntaAtual.texto;
+
+      const opcoesDiv = document.getElementById('opcoes');
+      opcoesDiv.innerHTML = "";
+
+      perguntaAtual.opcoes.forEach((opcao, i) => {
+        const botao = document.createElement("button");
+        botao.textContent = opcao.texto;
+        botao.className = "opcao";
+        botao.onclick = () => {
+          if (opcao.correta) acertos++;
+          proximaPergunta();
+        };
+        opcoesDiv.appendChild(botao);
+      });
+    }
+    function proximaPergunta() {
+      if (indice < perguntas.length - 1) {
+        indice++;
+        mostrarPergunta();
+      } else {
+        mostrarResultado();
+      }
+    }
+    function voltarPergunta() {
+      if (indice > 0) {
+        indice--;
+        mostrarPergunta();
+      }
+    }
+    function mostrarResultado() {
+      document.querySelector('.container').innerHTML = `
+        <img src="bitico.jpg" alt="Bitico" class="bitico-topo">
+        <h2>Resultado final:</h2>
+        <p id="resultado-texto">Você acertou ${acertos} de 10!</p>
+        <p>${gerarFrase()}</p>
+        <div class="botoes">
+          <a href="pagina4.html"><button>← Voltar</button></a>
+          <a href="pagina6.html"><button>Próximo →</button></a>
+        </div>
+      `;
+    }
+    function gerarFrase() {
+      if (acertos <= 3) return "Ai ai ai... errou feio, mas ele ainda assim não resiste a você 😏";
+      if (acertos <= 6) return "Tá quente! Você conhece bastante, mas tem coisa que ele ainda guarda em segredo...";
+      if (acertos <= 9) return "🔥 Quase perfeita! Esse homem é teu e só teu!";
+      return "VOCÊ SABE DE TUDO! Alerta de perigo: essa mulher é a chave do coração (e da mente 😈) dele!";
+    }
+
+    mostrarPergunta();
+  </script>
+</body>
+</html>

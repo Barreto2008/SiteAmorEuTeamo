@@ -1,0 +1,119 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Vídeo Centralizado</title>
+    <style>
+        body {
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            height: 100vh;
+            margin: 0;
+            background-color: #000; /* Cor de fundo da página */
+            flex-direction: column; /* Para alinhar o conteúdo verticalmente */
+            overflow: hidden;
+        }
+
+        .bandeira {
+            position: absolute;
+            top: 50%;
+            transform: translateY(-50%);
+            width: 550px;
+            height: auto;
+            animation: balancar 2s ease-in-out infinite alternate;
+        }
+
+        .bandeira.esquerda {
+            left: 20px;
+        }
+
+        .bandeira.direita {
+            right: 20px;
+        }
+
+        @keyframes balancar {
+            0% {
+                transform: translateY(-50%) rotate(-3deg);
+            }
+            100% {
+                transform: translateY(-50%) rotate(3deg);
+            }
+        }
+
+        .video-container {
+            width: 400px;
+            padding: 20px;
+            background-color: #000;
+            box-sizing: border-box;
+            border-radius: 10px;
+            position: relative;
+            z-index: 1;
+        }
+
+        video {
+            width: 100%;
+            height: auto;
+            display: block;
+            border-radius: 5px;
+        }
+
+        .video-caption {
+            position: absolute;
+            top: -60px;
+            left: 0;
+            width: 100%;
+            text-align: center;
+            font-size: 30px;
+            color: rgb(255, 0, 0);
+            font-weight: bold;
+            padding: 10px;
+            background-color: rgba(0, 0, 0, 0.6);
+            border-radius: 5px;
+        }
+
+        .button-container {
+            margin-top: 20px;
+            display: flex;
+            justify-content: space-between;
+            width: 400px;
+        }
+
+        button {
+            background-color: #ff0000;
+            color: #000;
+            padding: 10px 20px;
+            border: none;
+            border-radius: 5px;
+            cursor: pointer;
+            font-size: 16px;
+        }
+
+        button:hover {
+            background-color: #ff0000;
+        }
+    </style>
+</head>
+<body>
+
+<img class="bandeira esquerda" src="c:\Users\mathe\Downloads\sport esquerda.jpg" alt="Bandeira Esquerda">
+<img class="bandeira direita" src="c:\Users\mathe\Videos\sportdireita.jpg" alt="Bandeira Direita">
+
+<div class="video-container">
+    <div class="video-caption">
+        Acertou o amor, só não o da vez<br>PELO SPORT TUDO!
+    </div>
+    <video controls>
+        <source src="c:\Users\mathe\Videos\pelo sport tudo.mp4" type="video/mp4">
+        Seu navegador não suporta vídeo.
+    </video>
+</div>
+
+<div class="button-container">
+    <button onclick="window.location.href='index.html'">Voltar</button>
+    <button onclick="window.location.href='index.html'">Próximo</button>
+</div>
+
+</body>
+</html>
